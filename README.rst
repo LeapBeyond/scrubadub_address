@@ -18,7 +18,7 @@ scrubadub_address
 
 This package contains one extra detectors:
 
- * **AddressDetector** - A detector that finds British, American and Canadian addresses.
+* **AddressDetector** - A detector that finds British, American and Canadian addresses.
 
 For more information on how to use this package see the
 `scrubadub address documentation <https://scrubadub.readthedocs.io/en/develop/addresses.html>`_
