@@ -13,12 +13,12 @@
 scrubadub_address
 *****************
 
-`scrubadub` removes personally identifiable information from text.
-`scrubadub_address` is an extension that uses `pyap` and `libpostal` to remove addresses from text.
+``scrubadub`` removes personally identifiable information from text.
+``scrubadub_address`` is an extension that uses ``pyap`` and ``libpostal`` to remove addresses from text.
 
-This package contains one extra detectors:
+This package contains one extra detector:
 
-* **AddressDetector** - A detector that finds British, American and Canadian addresses.
+* ``scrubadub_address.detectors.AddressDetector`` - A detector that finds British, American and Canadian addresses.
 
 For more information on how to use this package see the
 `scrubadub address documentation <https://scrubadub.readthedocs.io/en/develop/addresses.html>`_
