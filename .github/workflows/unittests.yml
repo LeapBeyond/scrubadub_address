@@ -34,7 +34,7 @@ jobs:
 
     - name: Install apt dependencies
       run: |
-        sudo apt-get update && sudo apt-get install -y curl autoconf automake libtool pkg-config default-jre
+        sudo apt-get update && sudo apt-get install -y curl autoconf automake libtool pkg-config
 
     - name: Cache restore libpostal
       id: cache-libpostal
@@ -69,9 +69,6 @@ jobs:
         export CPP_INCLUDE_PATH=${{ env.CPP_INCLUDE_PATH }}
         python -m pip install --upgrade pip wheel setuptools
         pip install -r requirements/python-dev
-        pip install -r requirements/python-extras-address
-        if python3 --version | grep -Evq "Python (3\\.5\\.)" ; then pip install -r requirements/python-extras-spacy ; fi
-        pip install -r requirements/python-extras-stanford
 
     - name: Cache restore nltk data
       id: cache-models
@@ -80,24 +77,10 @@ jobs:
         path: ~/nltk_data
         key: v1-nltk-data
 
-    - name: Download models and NLTK data
-      run: |
-        # Needed for the TextBlob model
-        python -m textblob.download_corpora
-        # One of the possible spacy models, should
-        ( python3 -c 'import spacy' && python -m spacy download en_core_web_sm ) || bash -c 'exit 0'
-        ( python3 -c 'import spacy' && python -m spacy download en_core_web_trf ) || bash -c 'exit 0'
-        ( python3 -c 'import spacy' && python -m spacy download de_core_news_sm ) || bash -c 'exit 0'
-
     - name: Install package
       run: |
-        if python3 --version | grep -Eq "Python (3\\.5\\.)" ; then
-          echo "Installing package, with no spacy"
-          pip install -e .[address,stanford]
-        else
-          echo "Installing package"
-          pip install -e .[address,spacy,stanford]
-        fi
+        echo "Installing package"
+        pip install -e .
 
     - name: Run tests
       run: |
