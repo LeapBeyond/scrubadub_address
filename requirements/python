@@ -1,4 +1,6 @@
-postal
+
+# taking postal out because readthedocs can't handle the the fact it needs a C-library
+# postal
 pyap
 
 scrubadub >= 2.0.0rc0

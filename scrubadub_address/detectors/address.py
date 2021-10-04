@@ -4,7 +4,8 @@ try:
     import postal.parser
 except (ImportError, ):
     raise ImportError(
-        'To use scrubadub_address.detectors.address, extra dependencies need to be installed: pyap and postal.'
+        'To use scrubadub_address.detectors.address, extra dependencies need to be installed: pyap and postal. '
+        'See https://scrubadub.readthedocs.io/en/stable/addresses.html for more details on how to install these.'
     )
 
 from typing import Dict, Optional
