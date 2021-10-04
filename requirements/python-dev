@@ -10,3 +10,7 @@ tox
 
 # needed for the tests/run.py script
 wasabi
+
+# needed by the AddressDetector
+# not a direct dependancy so that docs can build on readthedocs without building libpostal
+postal
