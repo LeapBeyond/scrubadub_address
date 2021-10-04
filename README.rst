@@ -42,6 +42,28 @@ and the `scrubadub repository <https://github.com/LeapBeyond/scrubadub>`_.
    :alt:  Documentation Status
 
 
+Installation
+------------
+
+First libpostal needs to be installed.
+Full instructions can be found in the `libpostal documentation <https://github.com/openvenues/libpostal#installation-maclinux>`_, but a summary is given below for linux installation:
+
+.. code-block:: console
+
+    $ sudo apt-get install curl autoconf automake libtool pkg-config
+    $ git clone https://github.com/openvenues/libpostal
+    $ cd libpostal
+    $ ./bootstrap.sh
+    $ ./configure --prefix=/usr/local/
+    $ make -j4
+    $ sudo make install
+
+Once you have installed libpostal, the remaining python dependencies can be installed:
+
+.. code-block:: console
+
+    $ pip install pypostal scrubadub_address
+
 New maintainers
 ---------------
 
