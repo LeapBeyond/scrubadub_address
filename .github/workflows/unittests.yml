@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.9, 3.8, 3.7, 3.6]
+        python-version: ["3.11", "3.10", "3.9", "3.8"]
 
     env:
       PREFIX: /home/runner/prefix
@@ -26,9 +26,9 @@ jobs:
       CPP_INCLUDE_PATH: /home/runner/prefix/include
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -92,4 +92,4 @@ jobs:
         COVERALLS_SERVICE_NAME: github-actions
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       run: |
-        if python3 --version | grep -q "Python 3.9." ; then coveralls ; fi
+        if python3 --version | grep -q "Python 3.11." ; then coveralls ; fi
